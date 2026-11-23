@@ -19,19 +19,33 @@ public class TaskFive {
         double[] params = new double[2];
 
         System.out.print("Введите вес в кг: ");
-        params[0] = scanner.nextDouble();
-        while (isPositive(params[0]) == false) {
-            System.out.println("Ошибка: вес должен быть больше 0");
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                params[0] = scanner.nextDouble();
+                if (isPositive(params[0])) {
+                    break;
+                }
+            } else {
+                scanner.nextLine(); // убрать текстовый ввод
+            }
+
+            System.out.println("Ошибка: введите вес числом больше 0");
             System.out.print("Введите вес в кг: ");
-            params[0] = scanner.nextDouble();
         }
 
         System.out.print("Введите рост в м: ");
-        params[1] = scanner.nextDouble();
-        while (isPositive(params[1]) == false) {
-            System.out.println("Ошибка: рост должен быть больше 0");
+        while (true) {
+            if (scanner.hasNextDouble()) {
+                params[1] = scanner.nextDouble();
+                if (isPositive(params[1])) {
+                    break;
+                }
+            } else {
+                scanner.nextLine(); // убрать текстовый ввод
+            }
+
+            System.out.println("Ошибка: введите рост числом больше 0");
             System.out.print("Введите рост в м: ");
-            params[1] = scanner.nextDouble();
         }
 
         return params;
